@@ -1,0 +1,60 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.google.firebase.quickstart.auth'
+    compileSdkVersion 33
+    flavorDimensions "minSdkVersion"
+
+    defaultConfig {
+        applicationId "com.google.firebase.quickstart.auth"
+        minSdkVersion 19
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.material:material:1.8.0'
+
+    // Import the Firebase BoM (see: https://firebase.google.com/docs/android/learn-more#bom)
+    implementation platform('com.google.firebase:firebase-bom:31.3.0')
+
+    // Firebase Authentication (Java)
+    implementation 'com.google.firebase:firebase-auth'
+
+    // Google Identity Services SDK (only required for Auth with Google)
+    implementation 'com.google.android.gms:play-services-auth:20.4.1'
+
+    // Firebase UI
+    // Used in FirebaseUIActivity.
+    implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test:rules:1.5.0'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    implementation "androidx.navigation:navigation-fragment:2.5.3"
+    implementation "androidx.navigation:navigation-ui:2.5.3"
+}
